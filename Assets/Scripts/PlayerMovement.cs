@@ -27,6 +27,6 @@ public class PlayerMovement: MonoBehaviour {
 			transform.eulerAngles += new Vector3 (0f, 90f, 0f);
 		}
 		// Have camera follow the player 
-		Camera.main.transform.position = transform.position + new Vector3 (0,5,-5); 
+		Camera.main.transform.position = transform.position + new Vector3 (0f,5f,-5f); 
 	}
 }
