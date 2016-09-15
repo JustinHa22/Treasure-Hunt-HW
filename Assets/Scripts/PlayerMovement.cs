@@ -24,7 +24,7 @@ public class PlayerMovement: MonoBehaviour {
 		}
 		// Turn player left 
 		if (Input.GetKeyDown (KeyCode.A)) {
-			transform.eulerAngles += new Vector3 (0f, 90f, 0f);
+			transform.eulerAngles += new Vector3 (0f, -90f, 0f);
 		}
 		// Have camera follow the player 
 		Camera.main.transform.position = transform.position + new Vector3 (0f,5f,-5f); 
