@@ -40,7 +40,7 @@ public class GameLogic : MonoBehaviour {
 		} else if ((tornado.position - player.position).magnitude < 4f) {
 			playerInteraction.text = "Go Up?"; 
 		}
-		if (Input.GetKey(KeyCode.Space) && count == 3) {
+		if (Input.GetKey (KeyCode.Space) && count == 3) {
 			didPlayerwin = true;
 			player.position += Up * Time.deltaTime; 
 			if (cloud1get == true) {
@@ -78,9 +78,7 @@ public class GameLogic : MonoBehaviour {
 		} 
 		if ((cloud1.position - player.position).magnitude < 3f && cloud1get == false) {
 			playerInteraction.text = "Can I come with you?";
-		} //else {
-			//playerInteraction.text = "";
-		//}
+		} 
 
 		if (((cloud1.position - player.position).magnitude < 3f) && (Input.GetKey(KeyCode.Space))){
 			playerInteraction.text = "";
