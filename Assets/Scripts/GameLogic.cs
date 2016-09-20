@@ -28,7 +28,7 @@ public class GameLogic : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.Space) && count == 3) {
 			didPlayerwin = true;
-		} else if (Input.GetKey(KeyCode.Space) && count != 3f){
+		} else if (Input.GetKey(KeyCode.Space) && count != 3 && ((tornado.position - player.position).magnitude) < 4f){
 			playerInteraction.text = "You don't have everyone";
 		}
 		// Pick up cloud 1 
@@ -48,7 +48,7 @@ public class GameLogic : MonoBehaviour {
 			cloud1get = true;
 		}
 		if (cloud1get == true) {
-			cloud1.position = player.position;
+			cloud1.position = new Vector3((player.position.x - 1f), player.position.y, (player.position.z - 1f));
 		}
 	}
 }
