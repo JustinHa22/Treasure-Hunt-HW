@@ -62,7 +62,7 @@ public class GameLogic : MonoBehaviour {
 			count += 1; 
 		}
 		if (cloud1get == true) {
-			cloud1.position = new Vector3((player.position.x - 1f), player.position.y, (player.position.z - 1f));
+			cloud1.position = new Vector3((player.position.x -.5f), player.position.y, (player.position.z -.5f));
 		}
 
 		// Pick up cloud 2 
@@ -82,7 +82,7 @@ public class GameLogic : MonoBehaviour {
 			cloud2get = true;
 		}
 		if (cloud2get == true) {
-			cloud2.position = new Vector3((player.position.x + 1.5f), player.position.y, (player.position.z - 1.5f));
+			cloud2.position = new Vector3((player.position.x + .75f), player.position.y, (player.position.z -.75f));
 			count += 1; 
 		}
 
@@ -103,7 +103,7 @@ public class GameLogic : MonoBehaviour {
 			cloud3get = true;
 		}
 		if (cloud3get == true) {
-			cloud3.position = new Vector3((player.position.x + 1f), player.position.y, (player.position.z + 1f));
+			cloud3.position = new Vector3((player.position.x + .5f), player.position.y, (player.position.z + .5f));
 			count += 1; 
 		}
 
@@ -124,7 +124,7 @@ public class GameLogic : MonoBehaviour {
 			cloud4get = true;
 		}
 		if (cloud4get == true) {
-			cloud4.position = new Vector3((player.position.x + 2f), player.position.y, (player.position.z - 2f));
+			cloud4.position = new Vector3((player.position.x + .75f), player.position.y, (player.position.z -.75f));
 			count += 1;
 		}
 
@@ -145,7 +145,7 @@ public class GameLogic : MonoBehaviour {
 			cloud5get = true;
 		}
 		if (cloud5get == true) {
-			cloud5.position = new Vector3((player.position.x + -1.75f), player.position.y, (player.position.z - 1.75f));
+			cloud5.position = new Vector3((player.position.x + -.65f), player.position.y, (player.position.z -.65f));
 			count += 1;
 		}
 	}
