@@ -25,6 +25,8 @@ public class GameLogic : MonoBehaviour {
 
 	int count = 0; 
 
+	private Vector3 Up = new Vector3(0,1,0); 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -40,32 +42,60 @@ public class GameLogic : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.Space) && count == 3) {
 			didPlayerwin = true;
+			player.position += Up * Time.deltaTime; 
+			if (cloud1get == true) {
+				cloud1.position += Up * Time.deltaTime;
+			}
+			if (cloud2get == true) {
+				cloud2.position += Up * Time.deltaTime;
+			}
+			if (cloud3get == true) {
+				cloud3.position += Up * Time.deltaTime;
+			}
+			if (cloud4get == true) {
+				cloud4.position += Up * Time.deltaTime;
+			}
+			if (cloud5get == true) {
+				cloud5.position += Up * Time.deltaTime;
+			}
 		} else if (Input.GetKey(KeyCode.Space) && count != 3 && ((tornado.position - player.position).magnitude) < 4f){
 			playerInteraction.text = "You don't have everyone";
 		}
 
 		// Pick up cloud 1 
-		if ((cloud1.position - player.position).magnitude < 70f && cloud1get == false){ 
+		if ((cloud1.position - player.position).magnitude > 70f && cloud1get == false) {
+			playerInteraction.text = "";
+		}
+		if ((cloud1.position - player.position).magnitude < 70f && cloud1get == false) { 
 			playerInteraction.text = "Help Me!";
 		}
+
 		if ((cloud1.position - player.position).magnitude < 50f && cloud1get == false) {
 			playerInteraction.text = "I'm right here!";
-		}
+		} 
 		if ((cloud1.position - player.position).magnitude < 20f && cloud1get == false) {
 			playerInteraction.text = "Over here!";
-		}
+		} 
 		if ((cloud1.position - player.position).magnitude < 3f && cloud1get == false) {
 			playerInteraction.text = "Can I come with you?";
-		}
+		} //else {
+			//playerInteraction.text = "";
+		//}
+
 		if (((cloud1.position - player.position).magnitude < 3f) && (Input.GetKey(KeyCode.Space))){
+			playerInteraction.text = "";
 			cloud1get = true;
 			count += 1; 
 		}
+
 		if (cloud1get == true) {
 			cloud1.position = new Vector3((player.position.x -.5f), player.position.y, (player.position.z -.5f));
 		}
 
 		// Pick up cloud 2 
+		if ((cloud2.position - player.position).magnitude > 70f && cloud2get == false) {
+			playerInteraction.text = "";
+		}
 		if ((cloud2.position - player.position).magnitude < 70f && cloud2get == false){ 
 			playerInteraction.text = "Help Us!";
 		}
@@ -82,11 +112,15 @@ public class GameLogic : MonoBehaviour {
 			cloud2get = true;
 		}
 		if (cloud2get == true) {
+			playerInteraction.text = "";
 			cloud2.position = new Vector3((player.position.x + .75f), player.position.y, (player.position.z -.75f));
 			count += 1; 
 		}
 
 		// Pick up cloud 3
+		if ((cloud3.position - player.position).magnitude > 70f && cloud3get == false) {
+			playerInteraction.text = "";
+		}
 		if ((cloud3.position - player.position).magnitude < 70f && cloud3get == false){ 
 			playerInteraction.text = "Help Me!";
 		}
@@ -103,11 +137,15 @@ public class GameLogic : MonoBehaviour {
 			cloud3get = true;
 		}
 		if (cloud3get == true) {
+			playerInteraction.text = "";
 			cloud3.position = new Vector3((player.position.x + .5f), player.position.y, (player.position.z + .5f));
 			count += 1; 
 		}
 
 		//Pick up cloud 4
+		if ((cloud4.position - player.position).magnitude > 70f && cloud4get == false) {
+			playerInteraction.text = "";
+		}
 		if ((cloud4.position - player.position).magnitude < 70f && cloud4get == false){ 
 			playerInteraction.text = "Help Us!";
 		}
@@ -124,11 +162,15 @@ public class GameLogic : MonoBehaviour {
 			cloud4get = true;
 		}
 		if (cloud4get == true) {
+			playerInteraction.text = "";
 			cloud4.position = new Vector3((player.position.x + .75f), player.position.y, (player.position.z -.75f));
 			count += 1;
 		}
 
 		//Pick up cloud 5
+		if ((cloud5.position - player.position).magnitude > 70f && cloud5get == false) {
+			playerInteraction.text = "";
+		}
 		if ((cloud5.position - player.position).magnitude < 70f && cloud5get == false){ 
 			playerInteraction.text = "Help Us!";
 		}
@@ -145,6 +187,7 @@ public class GameLogic : MonoBehaviour {
 			cloud5get = true;
 		}
 		if (cloud5get == true) {
+			playerInteraction.text = "";
 			cloud5.position = new Vector3((player.position.x + -.65f), player.position.y, (player.position.z -.65f));
 			count += 1;
 		}
